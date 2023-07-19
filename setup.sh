@@ -21,7 +21,7 @@ createVirtualEnvironment(){
  . venv/bin/activate
  pip list
  echo "Printing out pip list to verify installation and activation of env"
- echo "ERRORLEVEL - "$?"
+ echo "ERRORLEVEL - "$?""
 }
 
 installPythonModules(){
@@ -32,13 +32,25 @@ installPythonModules(){
  echo "ERRORLEVEL - $?"
 }
 
-installNodeJS(){
- sudo apt update
- sudo apt install Node.js
- sudo apt install npm
- Node.js -v && npm --version
- echo "status - Installation of NodeJS is - Successful"
- echo "ERRORLEVEL - $?"
+installNodeJS() {
+  # Install nvm (Node Version Manager) if not already installed
+  if ! command -v nvm &>/dev/null; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    source ~/.bashrc  # You might need to adjust this based on your shell configuration
+  fi
+
+  # Install Node.js version 18.6
+  nvm install 18.6.0
+
+  # Set Node.js version 18.6.0 as the default version (optional)
+  nvm use 18.6.0
+
+  # Display Node.js and npm versions
+  node -v
+  npm --version
+
+  echo "status - Installation of Node.js 18.6.0 is - Successful"
+  echo "ERRORLEVEL - $?"
 }
 
 installPython(){
