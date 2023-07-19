@@ -40,16 +40,17 @@ installPythonModules(){
  echo "status - python package installation in virtual envirnment - Successful"
  echo "ERRORLEVEL - $?"
 }
-
 installNodeJS() {
   # Install nvm (Node Version Manager) if not already installed
 
   cd "$(dirname "$0")"
-  sudo apt-get install nodejs
-  sudo apt-get install npm
+  sudo apt install nodejs
+  sudo dpkg -i --force-overwrite /var/cache/apt/archives/nodejs_18.17.0-deb-1nodesource1_amd64.deb
+  sudo apt -f install 
+  sudo apt install npm
   #curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads>
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_C>
   nvm install lts
   nvm use lts
 
@@ -59,6 +60,7 @@ installNodeJS() {
   echo "status - Installation of Node.js 18.6.0 is - Successful"
   echo "ERRORLEVEL - $?"
 }
+
 
 installPython(){
  sudo apt install software-properties-common -y
