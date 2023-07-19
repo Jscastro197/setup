@@ -32,7 +32,13 @@ installPythonModules(){
  echo "ERRORLEVEL - $?"
 }
 
-installNodeJS() {
+installNodeJS(){
+ sudo apt update
+ sudo apt install Node.js
+ sudo apt install npm
+ Node.js -v && npm --version
+ echo "status - Installation of NodeJS is - Successful"
+ echo "ERRORLEVEL - $?installNodeJS() {
   # Install nvm (Node Version Manager) if not already installed
   if ! command -v nvm &>/dev/null; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
@@ -51,6 +57,7 @@ installNodeJS() {
 
   echo "status - Installation of Node.js 18.6.0 is - Successful"
   echo "ERRORLEVEL - $?"
+}
 }
 
 installPython(){
@@ -75,3 +82,4 @@ installNodeJS
 # Set end time
 endTime=$(date +"%T")
 echo "Program Exited Files: $file At Time $endTime"
+echo "eof"
