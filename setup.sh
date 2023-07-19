@@ -1,4 +1,4 @@
-  GNU nano 6.2                                  setup.sh                                           
+                                         
 #!/bin/bash
 
 #Setting Variables
