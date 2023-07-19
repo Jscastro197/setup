@@ -32,13 +32,7 @@ installPythonModules(){
  echo "ERRORLEVEL - $?"
 }
 
-installNodeJS(){
- sudo apt update
- sudo apt install Node.js
- sudo apt install npm
- Node.js -v && npm --version
- echo "status - Installation of NodeJS is - Successful"
- echo "ERRORLEVEL - $?installNodeJS() {
+installNodeJS() {
   # Install nvm (Node Version Manager) if not already installed
   if ! command -v nvm &>/dev/null; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
@@ -58,7 +52,7 @@ installNodeJS(){
   echo "status - Installation of Node.js 18.6.0 is - Successful"
   echo "ERRORLEVEL - $?"
 }
-}
+
 
 installPython(){
  sudo apt install software-properties-common -y
