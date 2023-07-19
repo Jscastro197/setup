@@ -1,10 +1,10 @@
+  GNU nano 6.2                                  setup.sh                                           
 #!/bin/bash
 
 #Setting Variables
 file="$0"
 startTime=$(date +"%T")
 echo "Program Entered File: $file At Time $startTime"
-
 # Function: insatllNpmModules
 installNpmModules(){
  npm install -g npm
@@ -12,7 +12,7 @@ installNpmModules(){
  npm install
  echo "status - node modules installation in folder ubitolls-master - Successful"
  echo "ERRORLEVEL - $?"
-}
+}sudo apt install nodejs
 
 createVirtualEnvironment(){
  cd "$(dirname "$0")"
@@ -23,6 +23,15 @@ createVirtualEnvironment(){
  echo "Printing out pip list to verify installation and activation of env"
  echo "ERRORLEVEL - "$?""
 }
+
+installPythonModules(){
+ cd "$(dirname "$0")"
+ python3 -m pip install --upgrade pip
+ pip install -r requirements.txt
+ echo "status - python package installation in virtual envirnment - Successful"
+ echo "ERRORLEVEL - $?"
+}
+
 
 installPythonModules(){
  cd "$(dirname "$0")"
@@ -51,28 +60,25 @@ installNodeJS() {
   echo "ERRORLEVEL - $?"
 }
 
-
-
 installPython(){
  sudo apt install software-properties-common -y
  sudo add-apt-repository ppa:deadsnakes/ppa -y
  sudo apt update
  sudo apt install python3.7
- python3.7 -m ensurepip --upgrade
+ sudo apt install python3-pip
+ python3 --version 
  pip --version
  echo "status - Installation of Python3.7 and pip is - Successful"
  echo "ERRORLEVEL - $?"
 }
 
-
 # calling Functions
 installNodeJS
-
-
-
+#installPython
 
 
 # Set end time
 endTime=$(date +"%T")
 echo "Program Exited Files: $file At Time $endTime"
 echo "eof"
+
