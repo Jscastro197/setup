@@ -1,10 +1,10 @@
-                                         
 #!/bin/bash
 
 #Setting Variables
 file="$0"
 startTime=$(date +"%T")
 echo "Program Entered File: $file At Time $startTime"
+
 # Function: insatllNpmModules
 installNpmModules(){
  npm install -g npm
@@ -12,7 +12,7 @@ installNpmModules(){
  npm install
  echo "status - node modules installation in folder ubitolls-master - Successful"
  echo "ERRORLEVEL - $?"
-}sudo apt install nodejs
+}
 
 createVirtualEnvironment(){
  cd "$(dirname "$0")"
@@ -40,6 +40,7 @@ installPythonModules(){
  echo "status - python package installation in virtual envirnment - Successful"
  echo "ERRORLEVEL - $?"
 }
+
 installNodeJS() {
   # Install nvm (Node Version Manager) if not already installed
 
@@ -50,16 +51,14 @@ installNodeJS() {
   sudo apt install npm
   #curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_C>
+  export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
   nvm install lts
   nvm use lts
 
-
-  # Display Node.js and npm versions
-
   echo "status - Installation of Node.js 18.6.0 is - Successful"
   echo "ERRORLEVEL - $?"
-}
+} 
 
 
 installPython(){
