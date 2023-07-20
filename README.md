@@ -8,8 +8,34 @@ To perform a clean power cycle on the Raspberry Pi, follow these steps:
 
 1. Connect to the Raspberry Pi via SSH:
 
- ```
+```bash
 ssh pi@172.16.8.83
-cd stability 
+```
+2. Navigate to the "stability" directory:
+```bash
+cd stability
+```
+3. Execute the "startCleanCycle.sh" script:
+
+```bash
 ./startCleanCycle.sh
-  ```
+```
+
+## Dirty Power Cycle
+
+To perform a dirty power cycle on the Raspberry Pi, follow these steps:
+
+1. Connect to the Raspberry Pi via SSH:
+
+```bash
+ssh pi@172.16.8.83
+```
+2. Navigate to the "stability" directory:
+```bash
+cd stability
+```
+3. Execute the "startCleanCycle.sh" script:
+
+```bash
+./startDirtyCycle.sh
+```
