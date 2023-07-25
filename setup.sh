@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #Setting Variables
 file="$0"
